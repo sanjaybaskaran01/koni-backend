@@ -1,11 +1,16 @@
-import express, { Application, Request, Response } from "express";
+import manufacturerRouter from "./routers/manufacturerRouter";
+import equipmentRouter from "./routers/equipmentRouter"
+import express, { Application } from "express";
+import { PORT } from "./config";
 
 const app: Application = express();
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello world!')
-})
+app.use(express.json());
 
-app.listen(3001,()=>{
-    console.log("Listening to port 3001")
+app.use('/manufacturer', manufacturerRouter);
+app.use('/equipment', equipmentRouter);
+
+
+app.listen(PORT, () => {
+    console.log(`Listening to port ${PORT}`)
 })
