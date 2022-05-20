@@ -19,21 +19,6 @@ router.get('/', (req: Request, res: Response) => {
 
 router.post('/', async (req: Request, res: Response) => {
     const { name } = req.body;
-    (await db.getClient()).query(`CREATE EXTENSION IF NOT EXISTS "pgcrypto";
-    
-    CREATE TABLE IF NOT EXISTS manufacturers (
-      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-      name VARCHAR(20)
-    );
-    
-    CREATE TABLE IF NOT EXISTS equipments (
-        id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-        model VARCHAR(30) NOT NULL,
-        serialNumber VARCHAR(30) NOT NULL,
-        equipment_id UUID NOT NULL,
-        CONSTRAINT fk_equiptments FOREIGN KEY(equipment_id) REFERENCES manufacturers(id)
-    );`)
-
     const result = await db.query("INSERT INTO manufacturers(id,name) VALUES (DEFAULT,$1) RETURNING (id) ", [name])
 
     res.status(200).json({ status: 'success', id: result.rows[0].id });
@@ -54,7 +39,7 @@ router.get('/:ID', async (req: Request, res: Response, next: NextFunction) => {
 
 router.delete('/:ID', async (req: Request, res: Response) => {
     const { ID } = req.params
-    const result = await db.query('DELETE FROM manufacturers WHERE id = $1 RETURNING id;', [ID])
+    const result = await db.query('DELETE FROM manufacturers WHERE id = $1 RETURNING id; DELETE FROM equipments WHERE equipment_id= $1;', [ID])
     res.json({ status: 'success', deletedId: result.rows[0] })
 })
 
