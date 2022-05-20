@@ -3,6 +3,7 @@ import db from '../models/index';
 
 const router: Router = Router();
 
+// Route to list all the manufacturers
 router.get('/', async (req: Request, res: Response) => {
     try {
         const result = await db.query('SELECT * FROM manufacturers')
@@ -14,7 +15,7 @@ router.get('/', async (req: Request, res: Response) => {
     }
 })
 
-
+// Route to create new manufacturer
 router.post('/', async (req: Request, res: Response) => {
     try {
         const { name } = req.body;
@@ -29,6 +30,7 @@ router.post('/', async (req: Request, res: Response) => {
     }
 })
 
+// Route to read manufacturer from ID
 router.get('/:ID', async (req: Request, res: Response) => {
     try {
         const { ID } = req.params
@@ -42,6 +44,7 @@ router.get('/:ID', async (req: Request, res: Response) => {
     }
 })
 
+// Route to delete manufacturer from ID
 router.delete('/:ID', async (req: Request, res: Response) => {
     try {
         const { ID } = req.params
@@ -53,6 +56,7 @@ router.delete('/:ID', async (req: Request, res: Response) => {
     }
 })
 
+// Route to update manufacturer from ID
 router.put('/:ID', async (req: Request, res: Response) => {
     try {
         const { ID } = req.params
