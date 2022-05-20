@@ -43,8 +43,8 @@ router.get('/:ID', async (req: Request, res: Response, next: NextFunction) => {
 router.delete('/:ID', async (req: Request, res: Response) => {
     try {
         const { ID } = req.params
-        const result = await db.query('DELETE FROM manufacturers WHERE ID=$1', [ID])
-        res.json({ status: 'success', deletedId: result.rows[0] })
+        const result = await db.query('DELETE FROM manufacturers WHERE ID=$1 RETURNING *', [ID])
+        res.json({ status: 'success', deletedData: result.rows[0] })
     } catch (err: any) {
         console.error(err.message);
         res.status(500).json({ status: 'failure', error: err.message })

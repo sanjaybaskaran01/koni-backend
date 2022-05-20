@@ -8,6 +8,8 @@ const router: Router = Router();
 router.get('/', async (req: Request, res: Response) => {
     try {
         const result = await db.query('SELECT * FROM equipments')
+        if (!result.rows[0])
+            return res.json({status:'success',data:'Insert data into Manufacturers!'})
         res.json({ status: 'success', data: result.rows })
     } catch (err: any) {
         console.error(err.message);
@@ -18,8 +20,8 @@ router.get('/', async (req: Request, res: Response) => {
 // Route to create a new equipment 
 router.post('/', async (req: Request, res: Response) => {
     try {
-        const { model, serialNumber, equipment_id } = req.body;
-        const result = await db.query("INSERT INTO equipments(id,model,serialNumber,equipment_id) VALUES (DEFAULT,$1,$2,$3) RETURNING *", [model, serialNumber, equipment_id]) as QueryResult<any>
+        const { model, serialNumber, manufacturer_id } = req.body;
+        const result = await db.query("INSERT INTO equipments(id,model,serialNumber,manufacturer_id) VALUES (DEFAULT,$1,$2,$3) RETURNING *", [model, serialNumber, manufacturer_id]) as QueryResult<any>
         res.status(200).json({ status: 'success', id: result.rows[0].id });
     } catch (err: any) {
         console.error(err.message);

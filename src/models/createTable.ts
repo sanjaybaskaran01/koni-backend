@@ -14,9 +14,9 @@ export const createTable = async (): Promise<void> => {
       CREATE TABLE IF NOT EXISTS equipments (
           id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
           model VARCHAR(30) NOT NULL,
-          serialNumber VARCHAR(30) NOT NULL,
-          equipment_id UUID NOT NULL,
-          CONSTRAINT fk_equiptments FOREIGN KEY(equipment_id) REFERENCES manufacturers(id) ON DELETE CASCADE
+          serialNumber VARCHAR(30) NOT NULL UNIQUE,
+          manufacturer_id UUID NOT NULL,
+          CONSTRAINT fk_equiptments FOREIGN KEY(manufacturer_id) REFERENCES manufacturers(id) ON DELETE CASCADE
       );`);
     console.log("Created / Reinitialized Tables");
     client.release();
