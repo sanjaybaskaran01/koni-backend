@@ -1,9 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
-<p align="center">
-  <a href="https://bitbucket.org/sanjaybaskaran01/Koneksys">
-    <img src="https://koneksys.com/img/favicon.png" alt="Logo" width="80">
-  </a>
+
+  ![koneksyslogo](https://koneksys.com/img/favicon.png){width=80 height=80}
 
   <h3 align="center">Koneksys Backend Exercise</h3>
 
@@ -13,9 +11,6 @@
     <a href="#markdown-header-"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    
-</p>
-
 
 
 <!-- TABLE OF CONTENTS -->
@@ -61,10 +56,12 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
+
 * npm
 ```bash
 npm install npm@latest -g
 ```
+
 * yarn
 ```bash
 npm install -g yarn
