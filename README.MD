@@ -126,7 +126,10 @@ pm2 stop pm2-config.json
 ```bash
 pm2 restart pm2-config.json
 ```
-
+4. To view the logs of the app ( The error logs are visible in /logs/err.log & The output logs are visible in /logs/out.log)
+```
+pm2 logs
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
