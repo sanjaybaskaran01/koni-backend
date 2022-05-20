@@ -1,14 +1,14 @@
 <!-- PROJECT LOGO -->
 <br />
 
-  ![koneksyslogo](https://koneksys.com/img/favicon.png){width=80 height=80}
+  ![koneksyslogo](https://koneksys.com/img/favicon.png){width=50 height=50}
 
   <h3 align="center">Koneksys Backend Exercise</h3>
 
   <p align="center">
     Coding Exercise for NodeJS Backend Developer
     <br />
-    <a href="#markdown-header-"><strong>Explore the docs »</strong></a>
+    <a href="#markdown-header-usage"><strong>Explore the docs »</strong></a>
     <br />
     <br />
 
