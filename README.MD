@@ -10,7 +10,7 @@
   <p align="center">
     Coding Exercise for NodeJS Backend Developer
     <br />
-    <a href=""><strong>Explore the docs »</strong></a>
+    <a href="#markdown-header-"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     
@@ -21,12 +21,16 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
+* [About the Project](#markdown-header-about-the-project)
+  * [Built With](#markdown-header-built-with)
+* [Getting Started](#markdown-header-getting-started)
+  * [Prerequisites](#markdown-header-prerequisites)
+  * [Installation](#markdown-header-installation)
+  * [PM2 Instruction](#markdown-header-pm2-instructions)
+* [Usage](#markdown-header-usage)
+  * [For Manufacturers](#markdown-header-for-manufacturers)
+  * [For Equipments](#markdown-header-for-equipments)
+* [Meet the Developer](#markdown-header-meet-the-developer)
 
 
 
