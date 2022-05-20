@@ -1,10 +1,13 @@
 #!/bin/bash
 
-cd ~/koneksys
+cd /root/koneksys
+
+git reset --hard
 
 git pull origin development
 
-yarn build 
+yarn install
+yarn build
 
 pm2 describe koneksys-backend > /dev/null
 RUNNING=$?

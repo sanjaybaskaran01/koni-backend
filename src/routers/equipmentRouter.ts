@@ -59,10 +59,10 @@ router.delete('/:ID', async (req: Request, res: Response) => {
 router.put('/:ID', async (req: Request, res: Response) => {
     try {
         const { ID } = req.params
-        const { model, serialnumber } = req.body
-        if (!model && !serialnumber)
+        const { model, serialNumber } = req.body
+        if (!model && !serialNumber)
             throw new Error("Missing either model or serialNumber")
-        const result = await db.query("UPDATE equipments SET model=$1,serialnumber=$2 WHERE id=$3 RETURNING *", [model, serialnumber, ID])
+        const result = await db.query("UPDATE equipments SET model=$1,serialNumber=$2 WHERE id=$3 RETURNING *", [model, serialNumber, ID])
         res.json({ status: 'success', updatedData: result.rows[0] })
     } catch (err: any) {
         console.error(err.message);
