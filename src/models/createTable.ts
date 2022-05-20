@@ -16,7 +16,7 @@ export const createTable = async (): Promise<void> => {
           model VARCHAR(30) NOT NULL,
           serialNumber VARCHAR(30) NOT NULL,
           equipment_id UUID NOT NULL,
-          CONSTRAINT fk_equiptments FOREIGN KEY(equipment_id) REFERENCES manufacturers(id)
+          CONSTRAINT fk_equiptments FOREIGN KEY(equipment_id) REFERENCES manufacturers(id) ON DELETE CASCADE
       );`);
     console.log("Created / Reinitialized Tables");
     client.release();

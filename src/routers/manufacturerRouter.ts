@@ -3,26 +3,28 @@ import db from '../models/index';
 
 const router: Router = Router();
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
     try {
-        db.query('SELECT * FROM manufacturers', (err: any, result: any) => {
-            if (err) {
-                console.log(err);
-                return res.status(500).json({ status: "failure", error: err.message })
-            }
-            return res.json({ status: 'success', data: result.rows })
-        })
+        const result = await db.query('SELECT * FROM manufacturers')
+        if (!result.rows[0])
+            return res.json({status:'success',data:'Insert data into Manufacturers!'})
+        res.json({ status: 'success', data: result.rows })
     } catch (err: any) {
         res.status(500).json({ status: 'failure', error: err.message })
     }
 })
 
 router.post('/', async (req: Request, res: Response) => {
-    const { name } = req.body;
-    const result = await db.query("INSERT INTO manufacturers(id,name) VALUES (DEFAULT,$1) RETURNING (id) ", [name])
-
-    res.status(200).json({ status: 'success', id: result.rows[0].id });
-
+    try {
+        const { name } = req.body;
+        if (!name)
+            throw new Error("Name of manufacturer not provided")
+        const result = await db.query("INSERT INTO manufacturers(id,name) VALUES (DEFAULT,$1) RETURNING (id) ", [name]);
+        res.status(200).json({ status: 'success', id: result.rows[0].id });
+    } catch (err: any) {
+        console.error(err.message);
+        res.status(500).json({ status: 'failure', message: err.message })
+    }
 })
 
 router.get('/:ID', async (req: Request, res: Response, next: NextFunction) => {
@@ -30,24 +32,35 @@ router.get('/:ID', async (req: Request, res: Response, next: NextFunction) => {
         const { ID } = req.params
         const result = await db.query('SELECT * FROM manufacturers WHERE id=$1', [ID]);
         if (!result.rows[0])
-            res.json({ status: 'failure', error: 'No rows found for ID' })
+            throw new Error("No rows found for ID")
         res.json({ status: 'success', data: result.rows[0] })
-    } catch (e: any) {
-        res.status(500).json({ status: 'failure', error: e.message })
+    } catch (err: any) {
+        console.error(err.message);
+        res.status(500).json({ status: 'failure', error: err.message })
     }
 })
 
 router.delete('/:ID', async (req: Request, res: Response) => {
-    const { ID } = req.params
-    const result = await db.query('DELETE FROM manufacturers WHERE id = $1 RETURNING id; DELETE FROM equipments WHERE equipment_id= $1;', [ID])
-    res.json({ status: 'success', deletedId: result.rows[0] })
+    try {
+        const { ID } = req.params
+        const result = await db.query('DELETE FROM manufacturers WHERE ID=$1', [ID])
+        res.json({ status: 'success', deletedId: result.rows[0] })
+    } catch (err: any) {
+        console.error(err.message);
+        res.status(500).json({ status: 'failure', error: err.message })
+    }
 })
 
 router.patch('/', async (req: Request, res: Response) => {
-    const { id, name } = req.body
-    const result = await db.query("UPDATE manufacturers SET name=$1 WHERE id=$2 RETURNING *", [name, id])
-    console.log(result);
-    res.json({ status: 'success', updatedData: result.rows[0] })
+    try {
+        const { id, name } = req.body
+        const result = await db.query("UPDATE manufacturers SET name=$1 WHERE id=$2 RETURNING *", [name, id])
+        console.log(result);
+        res.json({ status: 'success', updatedData: result.rows[0] })
+    } catch (err: any) {
+        console.error(err.message);
+        res.status(500).json({ status: 'failure', error: err.message })
+    }
 })
 
 // route yet to do

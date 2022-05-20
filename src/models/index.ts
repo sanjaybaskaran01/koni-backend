@@ -1,12 +1,12 @@
-import { Pool } from 'pg'
+import { Pool, QueryConfig, QueryResult } from 'pg'
 import { pool_config } from '../config'
 
 const pool = new Pool(pool_config);
 
 export = {
-    async query(text: string, params: any) {
+    async query(text: string, params?: any[]): Promise<QueryResult<any>> {
         const start = Date.now()
-        const res = await pool.query(text, params)
+        const res = pool.query(text, params);
         const duration = Date.now() - start
         console.log('Executed Query', { text, duration })
         return res
