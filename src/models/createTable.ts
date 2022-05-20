@@ -14,7 +14,7 @@ export const createTable = async (): Promise<void> => {
       CREATE TABLE IF NOT EXISTS equipments (
           id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
           model VARCHAR(30) NOT NULL,
-          serialNumber VARCHAR(30) NOT NULL UNIQUE,
+          serialNumber VARCHAR(30) NOT NULL,
           manufacturer_id UUID NOT NULL,
           CONSTRAINT fk_equiptments FOREIGN KEY(manufacturer_id) REFERENCES manufacturers(id) ON DELETE CASCADE
       );`);

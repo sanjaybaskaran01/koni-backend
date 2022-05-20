@@ -18,7 +18,7 @@ app.use('/equipment', equipmentRouter);
 app.get('/:name/equipment', async (req: Request, res: Response) => {
     try {
         const { name } = req.params
-        const result = await db.query(`SELECT * from equipments WHERE manufacturer_id = (SELECT id from manufacturers WHERE name = $1)`, [name]);
+        const result = await db.query(`SELECT * from equipments WHERE manufacturer_id = (SELECT id from manufacturers WHERE LOWER(name) = LOWER($1))`, [name]);
         res.json({ status: 'success', data: result.rows });
     } catch (err: any) {
         console.error(err.message);
@@ -28,10 +28,11 @@ app.get('/:name/equipment', async (req: Request, res: Response) => {
 })
 
 // Get the manufacturer owner of this equipment
-app.get('/:serialnumber/manufacturer', async (req: Request, res: Response) => {
+app.get('/:model/manufacturer', async (req: Request, res: Response) => {
     try {
-        const { serialnumber } = req.params
-        const result = await db.query(`SELECT * from manufacturers WHERE id = (SELECT manufacturer_id from equipments WHERE serialnumber = $1)`, [serialnumber]);
+        const { model } = req.params
+        console.log(model);
+        const result = await db.query(`SELECT * from manufacturers WHERE id = (SELECT manufacturer_id from equipments WHERE LOWER(model) = LOWER($1))`, [model]);
         res.json({ status: 'success', data: result.rows });
     } catch (err: any) {
         console.error(err.message);

@@ -6,6 +6,7 @@ git reset --hard
 
 git pull origin development
 
+yarn install
 yarn build
 
 pm2 describe koneksys-backend > /dev/null
