@@ -136,8 +136,8 @@ pm2 restart pm2-config.json
 
 #### Create or update a manufacturer, list all manufacturers
 
-<details>
- <summary><code>GET</code> <code><b>/manufacturer</b></code> <code>(Lists all the manufacturers)</code></summary>
+
+ <code>GET</code> <code><b>/manufacturer</b></code> <code>(Lists all the manufacturers)</code>
 
 ##### Parameters
 
@@ -159,12 +159,12 @@ pm2 restart pm2-config.json
 >  curl --location --request GET 'http://137.184.53.72:3001/manufacturer'
 > ```
 
-</details>
 
 
 
-<details>
- <summary><code>POST</code> <code><b>/manufacturer</b></code> <code>(Inserts a new manufacturer into database)</code></summary>
+
+
+ <code>POST</code> <code><b>/manufacturer</b></code> <code>(Inserts a new manufacturer into database)</code>
 
 ##### Parameters
 
@@ -190,10 +190,10 @@ curl --location --request POST 'http://137.184.53.72:3001/manufacturer' \
 }'
 ```
 
-</details>
 
-<details>
- <summary><code>PUT</code> <code><b>/manufacturer/{ID}</b></code> <code>(Updates the name of the manufacturer)</code></summary>
+
+
+ <code>PUT</code> <code><b>/manufacturer/{ID}</b></code> <code>(Updates the name of the manufacturer)</code>
 
 ##### Parameters
 
@@ -221,15 +221,15 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 
 ```
 
-</details>
+
 
 ------------------------------------------------------------------------------------------
 
 #### Read or Delete a manufacturer
 
 
-<details>
-  <summary><code>GET</code> <code><b>/manufacturer/{ID}</b></code> <code>(Reads Manufacturer data by its defined uuid property)</code></summary>
+
+  <code>GET</code> <code><b>/manufacturer/{ID}</b></code> <code>(Reads Manufacturer data by its defined uuid property)</code>
 
 ##### Parameters
 
@@ -251,11 +251,11 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 >  curl --location --request GET 'http://137.184.53.72:3001/manufacturer/80f39157-dbb9-4463-95a9-9b690d32bbce'
 > ```
 
-</details>
 
 
-<details>
-  <summary><code>DELETE</code> <code><b>/manufacturer/{ID}</b></code> <code>(Deletes manufacturer data by its defined uuid property)</code></summary>
+
+
+  <code>DELETE</code> <code><b>/manufacturer/{ID}</b></code> <code>(Deletes manufacturer data by its defined uuid property)</code>
 
 ##### Parameters
 
@@ -279,7 +279,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 >  curl --location --request DELETE 'http://137.184.53.72:3001/manufacturer/179cc5e8-d2e7-4fdd-96c4-0443b89b48f7'
 > ```
 
-</details>
+
 
 ------------------------------------------------------------------------------------------
 
@@ -287,8 +287,8 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 #### List all equipments of the manufacturer
 
 
-<details>
-  <summary><code>GET</code> <code><b>/{name}/equipment</b></code> <code>(gets all the equipments of manufacturer by its name)</code></summary>
+
+  <code>GET</code> <code><b>/{name}/equipment</b></code> <code>(gets all the equipments of manufacturer by its name)</code>
 
 ##### Parameters
 
@@ -310,7 +310,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 >  curl --location --request GET 'http://137.184.53.72:3001/Humans/equipment'
 > ```
 
-</details>
+
 
 ------------------------------------------------------------------------------------------
 
@@ -320,8 +320,8 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 
 #### Create or update an equipment, list all equipments
 
-<details>
- <summary><code>GET</code> <code><b>/equipment</b></code> <code>(Lists all the manufacturers)</code></summary>
+
+ <code>GET</code> <code><b>/equipment</b></code> <code>(Lists all the manufacturers)</code>
 
 ##### Parameters
 
@@ -343,10 +343,10 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 >  curl --location --request GET 'http://137.184.53.72:3001/equipment'
 > ```
 
-</details>
 
-<details>
- <summary><code>POST</code> <code><b>/</b></code> <code>(Inserts a new equipment into database)</code></summary>
+
+
+ <code>POST</code> <code><b>/</b></code> <code>(Inserts a new equipment into database)</code>
 
 ##### Parameters
 
@@ -379,10 +379,10 @@ curl --location --request POST 'http://137.184.53.72:3001/equipment' \
 
 ```
 
-</details>
 
-<details>
- <summary><code>PUT</code> <code><b>/equipment/{ID}</b></code> <code>(Updates the name,specifiedModel, of the equipment)</code></summary>
+
+
+ <code>PUT</code> <code><b>/equipment/{ID}</b></code> <code>(Updates the name,specifiedModel, of the equipment)</code>
 
 ##### Parameters
 
@@ -413,15 +413,15 @@ curl --location --request PUT 'http://137.184.53.72:3001/equipment/3bc06fe7-bc77
 }'
 ```
 
-</details>
+
 
 ------------------------------------------------------------------------------------------
 
 #### Read or Delete a equipment
 
 
-<details>
-  <summary><code>GET</code> <code><b>/equipment/{ID}</b></code> <code>(Reads equipment data by its defined uuid property)</code></summary>
+
+  <code>GET</code> <code><b>/equipment/{ID}</b></code> <code>(Reads equipment data by its defined uuid property)</code>
 
 ##### Parameters
 
@@ -443,11 +443,11 @@ curl --location --request PUT 'http://137.184.53.72:3001/equipment/3bc06fe7-bc77
 > curl --location --request GET 'http://137.184.53.72:3001/equipment/3bc06fe7-bc77-4b56-9b7d-70d67e77f9ce'
 > ```
 
-</details>
 
 
-<details>
-  <summary><code>DELETE</code> <code><b>/equipment/{ID}</b></code> <code>(Deletes equipment data by its defined uuid property)</code></summary>
+
+
+  <code>DELETE</code> <code><b>/equipment/{ID}</b></code> <code>(Deletes equipment data by its defined uuid property)</code>
 
 ##### Parameters
 
@@ -471,7 +471,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/equipment/3bc06fe7-bc77
 >  curl --location --request DELETE 'http://137.184.53.72:3001/equipment/b2ae8c14-2e13-4079-a7bf-ef1076ea52f6'
 > ```
 
-</details>
+
 
 ------------------------------------------------------------------------------------------
 
@@ -479,8 +479,8 @@ curl --location --request PUT 'http://137.184.53.72:3001/equipment/3bc06fe7-bc77
 #### List all equipments of the equipment
 
 
-<details>
-  <summary><code>GET</code> <code><b>/{model name}/equipment</b></code> <code>(gets all the equipments of equipment by its name)</code></summary>
+
+  <code>GET</code> <code><b>/{model name}/equipment</b></code> <code>(gets all the equipments of equipment by its name)</code>
 
 ##### Parameters
 
@@ -502,7 +502,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/equipment/3bc06fe7-bc77
 > curl --location --request GET 'http://137.184.53.72:3001/the%20anduril%20sword/manufacturer'
 > ```
 
-</details>
+
 
 ------------------------------------------------------------------------------------------
 
