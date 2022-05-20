@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd ~/koneksys
+
+git pull origin development
+
+yarn build 
+
+pm2 describe koneksys-backend > /dev/null
+RUNNING=$?
+
+if [ "${RUNNING}" -ne 0 ]; then
+  pm2 start ./pm2-config.json
+else
+  pm2 restart koneksys-backend
+fi;
