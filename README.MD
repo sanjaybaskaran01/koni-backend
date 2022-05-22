@@ -182,6 +182,7 @@ pm2 logs
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success","id":<UUID of created manufacturer>}`                                |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 ##### Example cURL
@@ -204,12 +205,15 @@ curl --location --request POST 'http://137.184.53.72:3001/manufacturer' \
 > | name              |  type     | data type      | description                         |
 > |-------------------|-----------|----------------|-------------------------------------|
 > | `ID` |  required | UUID   | The specific UUID of manufacturer        |
+> | `name` |  required | string   | The updated name        |
+
 
 ##### Responses
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success","updatedData":<Updated data>}`                                                         |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 
@@ -246,6 +250,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success","data":<manufacturer data of UUID>}`                                                         |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 
@@ -273,6 +278,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success",deletedData:<manufacturer data that got deleted>}`                                                         |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 
@@ -305,6 +311,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success","data":[<Array of all the equipments of the particular manufacturer>]}`                                                         |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 
@@ -350,7 +357,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 
 
 
- <code>POST</code> <code><b>/</b></code> <code>(Inserts a new equipment into database)</code>
+ <code>POST</code> <code><b>/equipment</b></code> <code>(Inserts a new equipment into database)</code>
 
 ##### Parameters
 
@@ -367,6 +374,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/manufacturer/9a8cfe2b-1
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success","id":<UUID of created equipment>}`                                |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 ##### Example cURL
@@ -392,7 +400,6 @@ curl --location --request POST 'http://137.184.53.72:3001/equipment' \
 
 > | name              |  type     | data type      | description                         |
 > |-------------------|-----------|----------------|-------------------------------------|
-> | `ID` |  required | UUID   | The specific UUID of equipment to update        |
 > | `model` |  required | string   | Updated model name        |
 > | `serialNumber` |  required | string   | Updated serialNumber         |
 
@@ -402,6 +409,7 @@ curl --location --request POST 'http://137.184.53.72:3001/equipment' \
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success","updatedData":<Updated data>}`                                                         |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 
@@ -438,6 +446,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/equipment/3bc06fe7-bc77
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success","data":<equipment data of UUID>}`                                                         |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 
@@ -465,6 +474,7 @@ curl --location --request PUT 'http://137.184.53.72:3001/equipment/3bc06fe7-bc77
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success",deletedData:<equipment data that got deleted>}`                                                         |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 
@@ -484,19 +494,20 @@ curl --location --request PUT 'http://137.184.53.72:3001/equipment/3bc06fe7-bc77
 
 
 
-  <code>GET</code> <code><b>/{model name}/equipment</b></code> <code>(gets all the equipments of equipment by its name)</code>
+  <code>GET</code> <code><b>/{model}/equipment</b></code> <code>(gets all the equipments of equipment by its name)</code>
 
 ##### Parameters
 
 > | name   |  type      | data type      | description                                                  |
 > |--------|------------|----------------|--------------------------------------------------------------|
-> | `model name` |  required  | string         | The Specified model name of the equipment                  |
+> | `model` |  required  | string         | The Specified model name of the equipment                  |
 
 ##### Responses
 
 > | http code     | content-type                      | response                                                            |
 > |---------------|-----------------------------------|---------------------------------------------------------------------|
 > | `200`         | `application/json`        | `{"status":"success","data":<Manufacturer Owner of the model>}`                                                         |
+> | `400`         | `application/json`                | `{"status":"failure","type":"body"|"params","message":<validation error message>}`                            |
 > | `500`         | `application/json`                | `{"status":"failure","message":<error message>}`                            |
 
 
