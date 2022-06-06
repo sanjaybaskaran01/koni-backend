@@ -17,4 +17,4 @@ pipelines:
              variables:
                SSH_USER: 'root'
                SERVER: $IP
-               COMMAND: '/root/koneksys/deploy.sh'
+               COMMAND: '/root/koni-backend/deploy.sh'
