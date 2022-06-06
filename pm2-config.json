@@ -1,7 +1,7 @@
 {
     "apps": [
         {
-            "name": "koneksys-backend",
+            "name": "koni-backend",
             "script": "./dist/app.js",
             "time": true,
             "log_date_format": "YYYY-MM-DD HH:mm Z",

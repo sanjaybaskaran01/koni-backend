@@ -1,9 +1,9 @@
 <!-- PROJECT LOGO -->
 <br />
 
-  ![koneksyslogo](https://koneksys.com/img/favicon.png){width=50 height=50}
+  ![CRUD](./CRUD.png)
 
-  <h3 align="center">Koneksys Backend Exercise</h3>
+  <h3 align="center">Koni-Backend</h3>
 
   <p align="center">
     Coding Exercise for NodeJS Backend Developer
@@ -33,7 +33,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Project built for Koneksys. A simple NodeJS REST application that automatically deploys using BitBucket Pipelines on a cloud server.
+A simple NodeJS REST application that automatically deploys using BitBucket Pipelines on a cloud server.
 
 
 ### Built With
@@ -70,7 +70,7 @@ npm install -g yarn
  
 1. Clone the repo
 ```bash
-git clone git@bitbucket.org:sanjaybaskaran01/koneksys.git
+git clone git@bitbucket.org:sanjaybaskaran01/koni-backend.git
 ```
 2. Install NPM packages
 ```bash
@@ -104,7 +104,7 @@ pm2-config.json
 {
     "apps": [
         {
-            "name": "koneksys-backend",
+            "name": "koni-backend",
             "script": "./dist/app.js",
             "time": true,
             "log_date_format": "YYYY-MM-DD HH:mm Z",
